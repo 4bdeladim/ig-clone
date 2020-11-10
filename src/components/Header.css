@@ -3,24 +3,3 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-.header {
-    display: flex ;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-}
-
-.title, 
-.search-input, 
-.links {
-    width: 33.33vw ;
-}
-
-.links {
-    display: flex ;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background: chartreuse;
-}

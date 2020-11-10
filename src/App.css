@@ -1,3 +1,12 @@
 * {
     color: #262626 ;
 }
+
+@font-face {
+    font-family: "Billabong";
+    src: url("./fonts/FontsFree-Net-Billabong.ttf") ;
+}
+
+.title {
+    font-family: 'Billabong', sans-serif;
+}

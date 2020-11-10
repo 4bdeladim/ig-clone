@@ -1,68 +1,98 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Status from './Status'
 import { posts } from './data'
-import './Home.css'
+import { SendPostIcon, CommentIcon, HeartIcon, HomeContainer, Icon, LeftIcons, MiddleSection, NameAndPlace, PostContainer, PostImg, PostOwnerName, PostOwnerPlace, PostOwnerProfileImg, PostsContainer, ReactIconsContainer, RightIcons, SaveIcon, SeeMore, SeeMorePoints, TopPostSection, Descreption, Likes, Desc, PostOwner, Tags, Comments, Comment, FriendComment, CommentOne, CommentField, InputField, PostBtn, Date } from './HomeStyle'
+import Suggestions from './Suggestions'
+
+
+
 
 const Home = () => {
-    return (
-        <div className='home'>
-            <div className="left-side">
-                <Status />
-                <div className='posts'>
-                             {posts.map((user) => (
-                                 <div className='post'>
-                                     <div className="top">
-                                        
-                                        <img className='avatar' src={user.postimg} />
-                                        <div className="name-place">
-                                            <a href='#' className="name"> {user.name} </a>
-                                            <a className='place'> {user.place} </a>
-                                        </div>
-                                        <div className='points' >...</div >
-                                     </div>
-                                    <div className="middle">
-                                        <img src={user.postimg} />
-                                    </div>
-                                    <div className='icons'>
 
-                                    </div>
-                                    <div className="dscreption">
-                                        <h1 className="likes"> {user.likes} likes </h1>
-                                        <p className='desc' > <span className='post-owner'> <a href='#'> {user.name}</a></span>{user.desc} </p>
-                                    </div>
-                                    <div className='tags'>
+    const [click, setClick ] = useState(true) ;
+
+
+
+    const comment = (e) => {
+        var comment = e.taget.value 
+        var matches = comment.match(/\b[^\d\s]+\b/g);
+        if (matches && matches.length >= 2) {
+            //two or more words
+            return true;
+        } else {
+            //not enough words
+            return false;
+        }
+    }
+
+    const clickHandler = () => {
+        setClick(!click)
+    }
+    return (
+        <>
+        <Status />
+        <HomeContainer >
+                <PostsContainer >
+                             {posts.map((user ) => (
+                                <PostContainer>
+                                    <TopPostSection>
+                                        <PostOwnerProfileImg src={user.avatar} />
+                                        <NameAndPlace >
+                                            <PostOwnerName to='/' > {user.name} </PostOwnerName>
+                                            <PostOwnerPlace to='/' > {user.place} </PostOwnerPlace>
+                                        </NameAndPlace>
+                                        <SeeMore >
+                                           <SeeMorePoints>...</SeeMorePoints> 
+                                        </SeeMore >
+                                    </TopPostSection>
+                                    <MiddleSection >
+                                        <PostImg src={user.postimg} />
+                                    </MiddleSection>
+                                    <ReactIconsContainer>
+                                        <RightIcons>
+                                            <HeartIcon onClick={clickHandler} />  
+                                            <CommentIcon />
+                                            <SendPostIcon />
+                                        </RightIcons>
+                                        <LeftIcons>
+                                            <SaveIcon />
+                                        </LeftIcons>
+                                    
+                                    </ReactIconsContainer>
+                                    <Descreption>
+                                        <Likes> {user.likes} likes </Likes>
+                                        <Desc> <span> <PostOwner href='#'> {user.name}</PostOwner></span>{user.desc} </Desc>
+                                    </Descreption>
+                                    <Tags>
                                         { user.tags }
-                                    </div>
-                                    <div className="comments">
-                                        <div className="comment">
-                                            <h3 className='friend-comment'> {user.name1} </h3>
-                                            <p className='comment1'> {user.comment1} </p>
-                                        </div>
-                                        <div className="comment">
-                                            <h3 className='friend-comment'> {user.name2} </h3>
-                                            <p className='comment1'> {user.comment2} </p>
-                                        </div>
-                                    </div>
-                                    <div className='date'>
+                                    </Tags>
+                                    <Comments>
+                                        <Comment>
+                                            <FriendComment> {user.name1} </FriendComment>
+                                            <CommentOne> {user.comment1} </CommentOne>
+                                        </Comment>
+                                        <Comment >
+                                            <FriendComment> {user.name2} </FriendComment>
+                                            <CommentOne> {user.comment2} </CommentOne>
+                                        </Comment>
+                                    </Comments>
+                                    <Date>
                                         { user.date }
-                                    </div>
-                                    <div className='type-comment'>
-                                        <input className='input' placeholder='Add a comment..' />
-                                        <a href='#' className='post-btn' > Post </a>
-                                    </div>
-                                 </div>
+                                    </Date>
+                                    <CommentField>
+                                        <InputField onChange={comment} placeholder='Add a comment..' />
+                                        <PostBtn href='#' > Post </PostBtn>
+                                    </CommentField>
+                                </PostContainer>
 
                                  
                                  
                              ))}
                      
-                </div>
-            </div>
-            <div className="suggestions">
-                <p>dzifezif</p>
-            </div>
-
-        </div>
+                </PostsContainer>
+                <Suggestions />
+        </HomeContainer>
+        </>
     )
 }
 

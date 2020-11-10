@@ -1,6 +1,6 @@
 import React from 'react'
 import { names } from './data'
-import './status.css'
+
 
 const Status = () => {
     return (
