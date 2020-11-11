@@ -8,11 +8,13 @@ export const HeaderContainer = styled.header `
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding-top: .5rem ;
-    padding-bottom: .5rem ;
     border-bottom: solid 0.01rem #9a9a9a65 ;
     width: 100vw ;
     background: #fff; 
+    z-index: 3 ;
+    padding: .4rem ;
+
+    
 `
 
 export const Title = styled.h1 `
@@ -31,6 +33,7 @@ export const SearchInput = styled.input `
     border-radius: 5px ;
     border: solid 1px  #dbdbdb ; 
     outline: none;
+    background: #fafafa ;
    
 
     &::placeholder {
@@ -44,9 +47,18 @@ export const LinksContainer = styled.div `
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 33.3333333333vw 
+    width: 33.3333333333vw ;
 `
 
 export const HomeIcon = styled.img `
     width: 22px ;
+    margin: 0 .8rem ;
+
+    
+`
+
+export const ProfileImg = styled.img `
+    margin: 0 .8rem ;
+    width: 22px ;
+    border-radius: 50% ;
 `

@@ -11,6 +11,10 @@ export const SuggestionsContainer = styled.div `
     position: sticky ;
     top: 8rem ;
     margin-left: 2rem ;
+
+    @media screen and (max-width: 1021px ) {
+        display: none ;
+    }
     
 `
 export const  AccountField = styled.div `
@@ -98,4 +102,11 @@ export const Switch = styled.a `
     font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
     color: #0195f6 ;
     cursor: pointer ; 
+`
+
+export const ProfileImgSuggestion  = styled.img `
+    width: 44px ;
+    height: 44px ;
+    border-radius: 50% ;
+    margin-top: .3rem ;
 `

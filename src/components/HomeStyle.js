@@ -13,8 +13,8 @@ export const HomeContainer = styled.div `
 
 export const PostsContainer = styled.div `
     width: 615px ;
-        @media screen and (max-width: 615px ) {
-        width: 100vw ;
+    @media screen and (max-width: 615px ) {
+        width: 97vw ;
         margin: 0 auto ;
     }
 `
@@ -116,6 +116,7 @@ export const SeeMorePoints = styled.h1 `
 export const MiddleSection = styled.div `
     display: flex;
     flex-direction: row;
+    
 `
 
 export const PostImg = styled.img `
@@ -303,4 +304,12 @@ export const PostBtn = styled.a `
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-decoration: none ;
     padding-right: 1rem ;
+`
+
+export const StorysContainer = styled.div  `
+    position: relative ;
+    display: flex ;
+    flex-direction: row ;
+    align-items: center ;
+    
 `

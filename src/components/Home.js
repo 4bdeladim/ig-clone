@@ -1,40 +1,34 @@
 import React, { useState } from 'react'
 import Status from './Status'
 import { posts } from './data'
-import { SendPostIcon, CommentIcon, HeartIcon, HomeContainer, Icon, LeftIcons, MiddleSection, NameAndPlace, PostContainer, PostImg, PostOwnerName, PostOwnerPlace, PostOwnerProfileImg, PostsContainer, ReactIconsContainer, RightIcons, SaveIcon, SeeMore, SeeMorePoints, TopPostSection, Descreption, Likes, Desc, PostOwner, Tags, Comments, Comment, FriendComment, CommentOne, CommentField, InputField, PostBtn, Date } from './HomeStyle'
+import { SendPostIcon, CommentIcon, HeartIcon, HomeContainer, Icon, LeftIcons, MiddleSection, NameAndPlace, PostContainer, PostImg, PostOwnerName, PostOwnerPlace, PostOwnerProfileImg, PostsContainer, ReactIconsContainer, RightIcons, SaveIcon, SeeMore, SeeMorePoints, TopPostSection, Descreption, Likes, Desc, PostOwner, Tags, Comments, Comment, FriendComment, CommentOne, CommentField, InputField, PostBtn, Date, StorysContainer } from './HomeStyle'
 import Suggestions from './Suggestions'
-
-
+import { BackArrow, NextArrow } from './StatusStyle'
+export const TransformStyle = true ;
 
 
 const Home = () => {
 
-    const [click, setClick ] = useState(true) ;
+    //Status,
+    
+
+    //
+    
 
 
 
-    const comment = (e) => {
-        var comment = e.taget.value 
-        var matches = comment.match(/\b[^\d\s]+\b/g);
-        if (matches && matches.length >= 2) {
-            //two or more words
-            return true;
-        } else {
-            //not enough words
-            return false;
-        }
-    }
-
-    const clickHandler = () => {
-        setClick(!click)
-    }
     return (
         <>
-        <Status />
+        
         <HomeContainer >
                 <PostsContainer >
-                             {posts.map((user ) => (
-                                <PostContainer>
+                    <StorysContainer>
+                        
+                        <Status  />
+                        
+                    </StorysContainer>
+                             {posts.map((user, index ) => (
+                                <PostContainer key={index} >
                                     <TopPostSection>
                                         <PostOwnerProfileImg src={user.avatar} />
                                         <NameAndPlace >
@@ -50,7 +44,7 @@ const Home = () => {
                                     </MiddleSection>
                                     <ReactIconsContainer>
                                         <RightIcons>
-                                            <HeartIcon onClick={clickHandler} />  
+                                            <HeartIcon  />  
                                             <CommentIcon />
                                             <SendPostIcon />
                                         </RightIcons>
@@ -80,7 +74,7 @@ const Home = () => {
                                         { user.date }
                                     </Date>
                                     <CommentField>
-                                        <InputField onChange={comment} placeholder='Add a comment..' />
+                                        <InputField placeholder='Add a comment..' />
                                         <PostBtn href='#' > Post </PostBtn>
                                     </CommentField>
                                 </PostContainer>
