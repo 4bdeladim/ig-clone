@@ -40,6 +40,10 @@ export const SearchInput = styled.input `
         text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
+
+    @media screen and (max-width: 615px ) {
+        display:none ;
+    }
 ` 
 
 export const LinksContainer = styled.div `
